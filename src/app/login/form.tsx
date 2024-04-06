@@ -8,6 +8,8 @@ import { useState } from 'react';
 
 
 export default function LoginForm() {
+  const [email, handleEmailChange] = useState('');
+  const [password, handlePasswordChange] = useState('');
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event: any) => {
@@ -18,6 +20,9 @@ export default function LoginForm() {
     }
 
     setValidated(true);
+
+    console.log('here', email, password)
+
   };
 
   return (
@@ -28,6 +33,9 @@ export default function LoginForm() {
           type="email"
           placeholder="Enter email"
           bsPrefix={`form-control ${styles['input-width']}`}
+          value={email}
+          onChange={event => handleEmailChange(event.target.value)}
+          autoComplete="off"
           required
         />
         <Form.Control.Feedback type="invalid">
@@ -40,6 +48,9 @@ export default function LoginForm() {
           type="password"
           placeholder="Password"
           bsPrefix={`form-control ${styles['input-width']}`}
+          value={password}
+          onChange={event => handlePasswordChange(event.target.value)}
+          autoComplete="off"
           required
         />
         <Form.Control.Feedback type="invalid">
