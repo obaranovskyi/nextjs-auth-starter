@@ -32,11 +32,8 @@ export default function LoginForm() {
         'http://localhost:3333/api/auth/login',
         { username: username, password }
       );
-
       localStorage.setItem('user', JSON.stringify(data));
-      
       router.push('/')
-
     } catch(err) {
       setIsError(true);
     }
